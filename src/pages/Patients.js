@@ -1,11 +1,18 @@
-import Card from 'react-bootstrap/Card';
+// import Card from 'react-bootstrap/Card';
 // import CardGroup from 'react-bootstrap/CardGroup';
 
 // import avatar from "../assets/avatar.png"
 import SearchBar from '../components/Searchbar';
 
+// import {addUser} from '../features/users/userReducer';
+import {useDispatch, useSelector} from 'react-redux'
+import { useState } from 'react';
 
 const Patients = () => {
+    const dispatch = useDispatch();
+    const [name, setName] = useState('');
+    const patients = useSelector((state)=>state.users.value)
+
     return (
         <div className='container-fluid' style={{overflow:"auto", height:"80%"}}>
             <div className='m-3'>
@@ -38,6 +45,15 @@ const Patients = () => {
                     ))
                 }
         </div> */}
+        {/* testing redux add user */}
+        {/* <input type="text" placeholder='add user name' onChange={(event) => {
+            setName(event.target.value);
+        }} />
+        <button onClick={() => {
+            dispatch(
+                addUser({id: patients[patients.length - 1].id + 1,first_name: 'K', last_name:name ,email:'rohit.apex1999@gmail.com', gender:'Male'})
+            )
+        }}>Add user</button> */}
     </div>
   )
 }

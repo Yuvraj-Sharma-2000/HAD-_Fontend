@@ -3,14 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import { ProSidebarProvider } from 'react-pro-sidebar';
+
+import {Provider} from 'react-redux'
+import {configureStore} from '@reduxjs/toolkit'
+
+import userReducer from './features/users/userReducer';
+
+const store = configureStore({
+  reducer:{
+    users: userReducer,
+  }
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <ProSidebarProvider> */}
+    <Provider store={store}>
       <App />
-    {/* </ProSidebarProvider> */}
+    </Provider>
   </React.StrictMode>
 );
 

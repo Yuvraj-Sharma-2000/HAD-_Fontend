@@ -6,7 +6,8 @@ import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
 import Patients from './pages/Patients';
 import Messages from './pages/Messages';
-import Header from './components/Header';
+import Profile from './pages/Profile';
+import PatientDetails from './pages/PatientDetails';
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Dashboard />}>DashBoard</Route>
             <Route exact path="/patients" element={<Patients />}>Patients</Route>
+            <Route exact path='/patients/:patientId' element={<PatientDetails />}></Route>
             <Route exact path="/chats" element={<Messages />}>Messages</Route>
+            <Route exact path="/profile" element={<Profile />}>Messages</Route>
           </Routes>
         </Sidebar>
       </Router>
