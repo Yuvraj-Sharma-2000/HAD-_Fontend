@@ -13,10 +13,12 @@ const SearchBar = () => {
     const dispatch = useDispatch()
 
     return (
-        <div>
-            <input placeholder="Search Patient" onChange={event => setQuery(event.target.value)}
-            className="my-3 border-light rounded w-25"
-            />
+        <div className='container-fluid'>
+            <div className="search__container col-md-3 mx-md-4 col-12">
+                <input className="search__input" type="text" placeholder="Search" 
+                  onChange={event => setQuery(event.target.value)}
+                />
+            </div>
             <div className="row m-3 align-items-center">
             {
               patients.filter(patient => {
@@ -29,7 +31,7 @@ const SearchBar = () => {
                   return patient;
                 }
               }).map((patient) => (
-                  <Card border="light" className="col-3 p-3 my-2" key={patient.id}>
+                  <Card border="light" className="col-md-3 col-12 col-sm-6 p-3 my-2" key={patient.id}>
                       <Card.Header>
                           <div className='avatar rounded-circle'>
                               <img alt="image" src={avatar} style={{objectFit:"contain", width:"25%"}}/>

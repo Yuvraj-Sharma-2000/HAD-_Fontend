@@ -19,7 +19,7 @@ function App() {
             <Route exact path="/patients" element={<Patients />}>Patients</Route>
             <Route exact path='/patients/:patientId' element={<PatientDetails />}></Route>
             <Route exact path="/chats" element={<Messages />}>Messages</Route>
-            <Route exact path="/profile" element={<Profile />}>Messages</Route>
+            <Route exact path="/profile" element={<Profile />}></Route>
           </Routes>
         </Sidebar>
       </Router>
