@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import swal from 'sweetalert'
-import {useNavigate} from 'react-router-dom'
+import {json, useNavigate} from 'react-router-dom'
 
-import baseurl from '../assets/URLs';
+import { loginURL } from '../assets/URLs';
 
 function LoginComponent(){
 
@@ -11,8 +11,6 @@ function LoginComponent(){
 
     const [username, setUsername] = useState('');
     const [pwd, setPwd] = useState('');
-    // const [isloading,setIsLoading] = useState(false);
-    var res=0;
 
     const enabled = username.length>0 && pwd.length>0;
 
@@ -20,6 +18,7 @@ function LoginComponent(){
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": '*',
+          "Access-Control-Expose-Headers": "authorization"
           }
         }
 
@@ -27,50 +26,26 @@ function LoginComponent(){
         event.preventDefault();
         // setIsLoading(true);
 
-        // await axios.post(`${baseurl}login`, {
-        //     username: username,
-        //     password: pwd
-        // }, config)
-        // .then((response) => {
-        //     console.log(response);
-        //     res = response.status;
-        //     navigate('/dashboard');
-        // })
-        // .catch((error) => {
-        //     console.log(error);
-        //     //if error is caught then show the alert popup
-        //     // swal({
-        //     //     title: "Invalid Credentials",
-        //     //     text: "Please check your username or password!!",
-        //     //     icon: "error",
-        //     //     button: "Try Again",
-        //     //   });
-        // })
-        
-
-        fetch(`${baseurl}login`, {
-     
-        // Adding method type
-        method: "POST",
-         
-        // Adding body or contents to send
-        body: JSON.stringify({
+        await axios.post(loginURL, {
             username: username,
             password: pwd
-        }),
-         
-        // Adding headers to the request
-        headers: {
-            "Content-type": "application/json; charset=UTF-8",
-            "Access-Control-Allow-Origin": "*"
-        }
-    })
-     
-    // Converting to JSON
-    .then(response => response.json())
-     
-    // Displaying results to console
-    .then(json => console.log(json));
+        }, config)
+        .then((response) => {
+            console.log(response);
+            window.localStorage.setItem('access-token', response.data.token)
+            console.log("access token", localStorage.getItem('access-token'));
+            navigate('/dashboard');
+        })
+        .catch((error) => {
+            console.log(error);
+            //if error is caught then show the alert popup
+            swal({
+                title: "Invalid Credentials",
+                text: "Please check your username or password!!",
+                icon: "error",
+                button: "Try Again",
+              });
+        })
     }
 
     return (

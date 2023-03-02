@@ -1,9 +1,12 @@
 import {useSelector} from 'react-redux'
 import {useParams} from 'react-router-dom'
+import {useEffect} from 'react'
 
 import Card from 'react-bootstrap/Card';
 import avatar from "../assets/avatar.png"
 import Sidebar from '../components/Sidebar';
+import axios from 'axios';
+import { allPatientsURL } from '../assets/URLs';
 
 const PatientDetails = (props) => {
     const patients = useSelector((state)=>state.users.value);

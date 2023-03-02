@@ -3,6 +3,9 @@
 
 // import avatar from "../assets/avatar.png"
 import SearchBar from '../components/Searchbar';
+import axios from 'axios'
+import {useEffect} from 'react'
+import {allPatientsURL} from '../assets/URLs'
 
 // import {addUser} from '../features/users/userReducer';
 import {useDispatch, useSelector} from 'react-redux'
@@ -13,6 +16,28 @@ const Patients = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
     const patients = useSelector((state)=>state.users.value)
+
+    useEffect(() => {
+        fetchPatients();
+    }, []);
+
+    const token = localStorage.getItem('access-token')
+
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    async function fetchPatients(){
+        await axios.get(`${allPatientsURL}5d2d2f08-15f7-4ace-b421-3d8d75a2ae67`,config)
+        .then((response) => {
+            console.log(response.data);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    }
 
     return (
         <Sidebar>

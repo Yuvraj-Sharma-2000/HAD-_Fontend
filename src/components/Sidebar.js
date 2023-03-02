@@ -45,7 +45,7 @@ const Sidebar = (props) => {
               {
                 routes.map((route) => (
                   <div className='navLink'>
-                    <NavLink exact to={route.path} activeClassName="activeClicked">
+                    <NavLink exact to={route.path} activeclassName="activeClicked">
                       <CDBSidebarMenuItem icon={route.icon} textColor="#000000">{route.name}</CDBSidebarMenuItem>
                     </NavLink>
                   </div>
