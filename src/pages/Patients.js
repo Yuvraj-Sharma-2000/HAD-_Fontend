@@ -7,6 +7,7 @@ import SearchBar from '../components/Searchbar';
 // import {addUser} from '../features/users/userReducer';
 import {useDispatch, useSelector} from 'react-redux'
 import { useState } from 'react';
+import Sidebar from '../components/Sidebar';
 
 const Patients = () => {
     const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const Patients = () => {
     const patients = useSelector((state)=>state.users.value)
 
     return (
+        <Sidebar>
         <div className='container-fluid' style={{overflow:"auto", height:"80%"}}>
             <div className='m-3'>
                 <SearchBar />
@@ -55,6 +57,7 @@ const Patients = () => {
             )
         }}>Add user</button> */}
     </div>
+    </Sidebar>
   )
 }
  

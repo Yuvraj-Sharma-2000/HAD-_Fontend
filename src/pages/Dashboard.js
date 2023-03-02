@@ -1,8 +1,10 @@
+import Sidebar from '../components/Sidebar'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
 const Dashboard = () => {
     return ( 
         <>
+        <Sidebar>
         <div className="container-fluid p-5" style={{height:"80vh"}}>
             <div style={{backgroundColor:"#d8d9d8"}} className='row justify-content-center'>
                 <h5 style={{margin:'5px 5px'}} className='row'>My Dashboard</h5>
@@ -109,6 +111,7 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
+        </Sidebar>
         </>
     );
 }

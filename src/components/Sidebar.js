@@ -7,7 +7,7 @@ import {
   CDBSidebarMenu,
   CDBSidebarMenuItem,
 } from 'cdbreact';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink , Link} from 'react-router-dom';
 import {AiOutlineLogout} from 'react-icons/ai'
 import Header from './Header';
 
@@ -15,7 +15,7 @@ import Header from './Header';
 const routes = [
   {
     name: "Dashboard",
-    path: "/",
+    path: "/dashboard",
     icon: "columns"
   },
   {
@@ -60,8 +60,9 @@ const Sidebar = (props) => {
                 padding: '20px 5px',
               }}
             >
-              Logout <icon ><AiOutlineLogout /></icon>
-              {/* <button onClick={Logout}>Logout <i><icon><AiOutlineLogout/></icon></i></button> */}
+              <Link to={`/`}>
+                <button className='btn btn-secondary'>Logout <icon><AiOutlineLogout/></icon></button>
+              </Link>
             </div>
           </CDBSidebarFooter>
         </CDBSidebar>
