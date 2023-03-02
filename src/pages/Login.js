@@ -34,6 +34,7 @@ function LoginComponent(){
             console.log(response);
             window.localStorage.setItem('access-token', response.data.token)
             console.log("access token", localStorage.getItem('access-token'));
+            // window.location.reload(true)
             navigate('/dashboard');
         })
         .catch((error) => {

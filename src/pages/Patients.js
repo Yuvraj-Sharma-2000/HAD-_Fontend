@@ -11,6 +11,7 @@ import {allPatientsURL} from '../assets/URLs'
 import {useDispatch, useSelector} from 'react-redux'
 import { useState } from 'react';
 import Sidebar from '../components/Sidebar';
+import {updateUserState} from '../features/users/userReducer'
 
 const Patients = () => {
     const dispatch = useDispatch();
@@ -33,6 +34,9 @@ const Patients = () => {
         await axios.get(`${allPatientsURL}5d2d2f08-15f7-4ace-b421-3d8d75a2ae67`,config)
         .then((response) => {
             console.log(response.data);
+            dispatch(
+                updateUserState(response.data)
+            )
         })
         .catch((error) => {
             console.log(error);

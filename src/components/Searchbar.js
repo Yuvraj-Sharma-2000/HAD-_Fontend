@@ -24,10 +24,10 @@ const SearchBar = () => {
               patients.filter(patient => {
                 if (query === '') {
                   return patient;
-                } else if (patient.first_name.toLowerCase().includes(query.toLowerCase())) {
+                } else if (patient.firstName.toLowerCase().includes(query.toLowerCase())) {
                   return patient;
                 }
-                else if (patient.last_name.toLowerCase().includes(query.toLowerCase())) {
+                else if (patient.lastName.toLowerCase().includes(query.toLowerCase())) {
                   return patient;
                 }
               }).map((patient) => (
@@ -37,13 +37,13 @@ const SearchBar = () => {
                               <img alt="image" src={avatar} style={{objectFit:"contain", width:"25%"}}/>
                           </div>
                           <div className=''>
-                              <Card.Title>{patient.first_name} {patient.last_name}</Card.Title>
+                              <Card.Title>{patient.firstName} {patient.lastName}</Card.Title>
                               <Card.Text>Patient ID: {patient.id}</Card.Text>
                           </div>
                       </Card.Header>
                       <div className='my-2'>
                           <div style={{backgroundColor:"#d8d8d9"}} className="p-2">
-                              <i>More details here</i>
+                              {/*<i>More details here</i>*/}
                               <Card.Text>
                                   mail: {patient.email} <br/>
                                   gender: {patient.gender}

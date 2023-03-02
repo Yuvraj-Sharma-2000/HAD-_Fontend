@@ -1,3 +1,7 @@
-export const loginURL = "https://b814-119-161-98-68.ngrok.io/login"
+export const loginURL = "http://localhost:8080/login"
 
-export const allPatientsURL = "https://b814-119-161-98-68.ngrok.io/doctor/dashboard/get-reg-patients/"
+export const allPatientsURL = "http://localhost:8080/doctor/dashboard/get-reg-patients/"
+
+export const requestsURL = "http://localhost:8080/doctor/dashboard/requests/"
+
+export const requestResponseURL = "http://localhost:8080/doctor/dashboard/request-response/"

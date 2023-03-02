@@ -32,7 +32,7 @@ const PatientDetails = (props) => {
                                         <img alt="image" src={avatar} style={{objectFit:"contain", width:"25%"}}/>
                                     </div>
                                     <div className=''>
-                                        <Card.Title>{patient.first_name} {patient.last_name}</Card.Title>
+                                        <Card.Title>{patient.firstName} {patient.lastName}</Card.Title>
                                         <Card.Text>Patient ID: {patient.id}</Card.Text>
                                         <button className='btn btn-secondary'>Message Patient</button>
                                     </div>
@@ -42,7 +42,10 @@ const PatientDetails = (props) => {
                                     <i>Patient Details</i>
                                     <Card.Text>
                                         mail: {patient.email} <br/>
-                                        gender: {patient.gender}
+                                        gender: {patient.gender} <br/>
+                                        address: {patient.address} <br/>
+                                        contact: {patient.contact} <br/>
+                                        DOB: {patient.dob.month} {patient.dob.year}
                                     </Card.Text>
                                 </div>
                             </div>

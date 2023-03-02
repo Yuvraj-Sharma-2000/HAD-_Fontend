@@ -61,7 +61,11 @@ const Sidebar = (props) => {
               }}
             >
               <Link to={`/`}>
-                <button className='btn btn-secondary'>Logout <icon><AiOutlineLogout/></icon></button>
+                <button className='btn btn-secondary'
+                  onClick={()=>{
+                    window.localStorage.removeItem('access-token');
+                  }}
+                >Logout <icon><AiOutlineLogout/></icon></button>
               </Link>
             </div>
           </CDBSidebarFooter>
